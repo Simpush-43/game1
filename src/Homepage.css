@@ -1,0 +1,92 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Homepage-body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: brown;
+}
+.Homepage{
+  display: flex;
+  background-color: #e64539;
+  border: 2px solid wheat;
+  box-shadow: 3px 2px 3px black;
+  perspective: 1000px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  height: 400px;
+}
+.Title{
+  color: #ffee83;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+  text-align: center;  
+font-weight: 600;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 1.7rem;
+}
+.Rules p{
+text-align: center;  
+font-weight: 600;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 1.5rem;
+color: red;
+border-bottom: 1px solid black;
+}
+.Rules ul{
+  margin-top: 12px;
+}
+.Rules ul li{
+  color: white;
+  list-style: disc;
+  margin-top: 10px;
+  font-weight: 500;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 0.9rem;
+}
+/* From Uiverse.io by necatimertmetin */ 
+.button-border {
+  border: 8px solid #ffae70;
+  outline: 4px solid;
+  border-radius: 100px;
+}
+
+.button-base {
+  background-color: #75221c;
+  outline: 2px solid black;
+  position: relative; /* Gövde içinde konumlama gerekebilir */
+  border-radius: 100px;
+}
+
+.button {
+  border-radius: 100px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 18px;
+  outline: 2px solid black;
+  border: 4px solid;
+  border-left-color: #e7b8b4;
+  border-top-color: #f8c9c5;
+  border-bottom-color: #4e1814;
+  border-right-color: #79241e;
+  background-color: #e64539;
+  cursor: pointer;
+  color: #ffee83;
+  padding: 20px 30px;
+  transform: translateY(-20%);
+}
+
+.button:hover {
+  transform: translateY(-10%); /* Hover durumunda butonu yukarı kaydır */
+}
+
+.button:active {
+  transform: translateY(0); /* Butona tıklanırken konumlandırmayı geri al */
+}
