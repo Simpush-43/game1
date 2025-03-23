@@ -1,22 +1,4 @@
-.board-row{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.board-container{
-  margin: 30px;
-  height: 300px;
-  width: 300px;
-}
-.Board-mesh{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color:rgb(248, 118, 31);
-  flex-direction: column;
-gap: 20px;
-}
+
 .Board-title{
   font-weight: 600;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
