@@ -1,0 +1,26 @@
+.user-info_Multiplayer{
+   display: flex;
+  justify-content: space-between;
+  position: fixed;
+  float: left;
+  left: 60px;
+  top: 110px;
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(45deg, #fffbf0, #ffdd87);
+    transition-duration: 0.5s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 12px;
+  padding: 10px;
+  z-index: 1000;
+}
+.User_stats{
+  display: flex;
+  flex-direction: column;
+}
+.User_stats p{
+  font-family: "Bangers", system-ui;
+  font-weight: 600;
+  font-style: normal;
+
+}

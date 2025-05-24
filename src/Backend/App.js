@@ -1,0 +1,48 @@
+const express = require('express');
+const { handleConnectToMongoose } = require('./Connect');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+const SignupRoute = require('./Routes/UserRoutes');
+// web socket server 
+const SocketIoServer = require('./SocketIoServer')
+
+dotenv.config({path:'keys.env'});
+console.log("Access key:",process.env.ACCESS_SECRET)
+
+// creating port
+ const app = express();
+ const PORT = process.env.APP_PORT;
+ //setting up ws server
+ const server= SocketIoServer(app)
+//middlewares
+app.use(cookieParser())
+app.use(express.json())
+const corsOption ={
+    origin: 'http://localhost:5173',
+  credentials: true,
+}
+app.use(cors(corsOption))
+app.use(SignupRoute);
+
+// connection to mongodatabse
+handleConnectToMongoose('mongodb://localhost:27017/Tictak').then(()=>{
+  console.log('connected to database')
+}).catch((err)=>{
+  console.log('error in connecting to database')
+})
+// handling request 
+app.get('/',(req,res)=>{
+  res.send("helloo bhayyy")
+})
+app.get('/server',(req,res)=>{
+  res.send("hiii from server")
+})
+// listening to the port
+server.listen(PORT,(err)=>{
+ if(err){
+   console.log('Error',err)
+ }else{
+   console.log(`Server is running on ${PORT}`)
+ }
+});

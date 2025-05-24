@@ -1,0 +1,127 @@
+.Game_Menu{
+  background:  url('./assets/Game_Menu.png');
+  background-size: contain;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+}
+.Title_Game {
+  font-family: "Bangers", system-ui;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgb(248, 209, 34);
+  -webkit-text-stroke: 3px;
+  -webkit-text-stroke-color: #472612;
+  margin-bottom: 20px; /* Add space between title and board */
+  text-align: center;
+  z-index: 2; /* Ensure it's above the background */
+}
+.Title_Game img{
+  height: 70px;
+  width: 70px;
+  transform: translateY(28px);
+}
+.Outer_Border{
+  position: relative;
+  z-index: 1;
+  border-top-left-radius: 17px; 
+  border-top-right-radius: 17px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  padding: 8px; /* Outer Border Thickness */
+  background-color: #97572b;
+  border: 2px solid rgb(71, 38, 18);
+}
+.Board_Container{
+  /* position: absolute; */
+  background: linear-gradient(145deg, #f0b429, #d99824); /* Golden Gradient */
+  z-index: 2;
+  height: 300px;
+  width: 240px;
+  border-top-left-radius: 27px; 
+  border-top-right-radius: 27px;
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* for golden border */
+  
+}
+
+.Option1,.Option2,.Option3{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbe213;
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border-bottom-left-radius: 19px;
+  border: 2px solid rgb(71, 38, 18);
+  z-index: 2;
+  text-align: center;
+  padding: 12px;
+  box-sizing: border-box;
+  padding: 10px; 
+  -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.57);
+-moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.57);
+box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.57);
+}
+.Option1 img{
+  height: 35px;
+  width: 35px;
+  filter: drop-shadow(0 0 0 #472612) drop-shadow(1px 2px 0 #472612);
+}
+.Option2 img, .Option3 img{
+  height: 40px;
+  width: 40px;
+  filter: drop-shadow(0 0 0 #472612) drop-shadow(1px 2px 0 #472612);
+}
+.Option1 p,.Option2 p,.Option3 p{
+  font-family: "Bangers", system-ui;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(53, 30, 12);
+}
+.Back{
+  margin-top: 30px;
+  z-index: 3;
+   padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.Back:hover{
+    background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+} 
+.Back:active{
+    transform: translateY(-1px);
+}
+.Gamemenu-Back{
+  outline: none;
+   font-family: "Bangers", system-ui;
+     font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(245, 230, 28);
+}

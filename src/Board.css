@@ -3,9 +3,34 @@
   font-weight: 600;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size: 1.5rem;
-color: white;
+color: yellow;
 border-bottom: 2px solid black;
 padding-bottom: 10px;
+z-index: 1;
+}
+.Board-mesh img{
+  z-index: 1;
+  height: 70px;
+  width: 70px;
+  transform: translateY(61px);
+  opacity: 0.78;
+}
+.glass-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Match the parent border radius */
+z-index: 1;
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.1); /* Light transparent layer */
+  backdrop-filter: blur(3px); /* Apply blur to the background */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  
+  /* Optional */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Depth with shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Frosted border */
 }
 /* winner showcase */
 .Winner{
@@ -23,7 +48,7 @@ padding-bottom: 10px;
   font-size: 1.5rem;
   color: chartreuse;
 }
-button {
+.Button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,12 +69,12 @@ button {
   transition: all 0.5s ease;
 }
 
-button:active {
+.Button:active {
   transform: scale(0.9);
   transition: all 100ms ease;
 }
 
-button svg {
+.Button svg {
   transition: all 0.5s ease;
   z-index: 2;
 }
@@ -59,7 +84,7 @@ button svg {
   transition-delay: 300ms;
 }
 
-button:hover svg {
+.Button:hover svg {
   transform: scale(3) translate(50%);
 }
 
@@ -71,12 +96,78 @@ button:hover svg {
   z-index: 2;
 }
 
-button:hover .now {
+.Button:hover .now {
   transform: translateX(10px);
   transition-delay: 300ms;
 }
 
-button:hover .play {
+.Button:hover .play {
   transform: translateX(200%);
   transition-delay: 300ms;
+}
+.Home {
+  padding: 8px 12px; /* Reduced padding */
+  background-color: yellow;
+  border-radius: 8px; /* Smaller border radius */
+  font-family: "Baloo Bhaijaan 2", sans-serif;
+  font-size: 1rem; /* Smaller font size */
+  font-weight: 400;
+  outline: none;
+  margin-top: 20px; /* Reduced margin */
+  display: block;
+  position: relative; /* Required for pseudo-elements */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  z-index: 1; /* Ensure button is above waves */
+}
+
+/* Common styles for ::after and ::before */
+.Home::after,
+.Home::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10%; /* Reduced wave height */
+  left: 0;
+  right: 0;
+  z-index: -1; /* Place below the button */
+  background-color: blueviolet;
+  transition: clip-path 0.4s ease, height 0.4s ease;
+}
+
+/* Bottom wave */
+.Home::after {
+  bottom: 0;
+  clip-path: polygon(
+    0% 80%, 5% 81%, 10% 82%, 15% 83%, 20% 83%, 25% 82%, 30% 81%, 40% 80%,
+    50% 79%, 60% 80%, 70% 82%, 80% 85%, 90% 90%, 100% 95%, 100% 100%, 0 100%
+  );
+}
+
+/* Top wave (flipped version) */
+.Home::before {
+  top: 0;
+  transform: rotate(180deg); /* Flip for the top wave */
+}
+
+/* Hover Effect: Expand the waves */
+.Home:hover::after,
+.Home:hover::before {
+  height: 40%; /* Smaller hover expansion */
+  clip-path: polygon(
+    0 50%, 8% 52%, 12% 55%, 18% 58%, 22% 56%, 28% 50%, 35% 48%, 42% 50%,
+    50% 53%, 58% 52%, 66% 48%, 72% 46%, 82% 48%, 90% 53%, 100% 60%, 100% 100%, 0 100%
+  );
+}
+
+.Home:hover::before {
+  background-color: greenyellow; /* Change top wave color */
+}
+
+/* Emoji styling */
+.Homeemoji {
+  margin-right: 4px; /* Slightly closer to text */
 }
