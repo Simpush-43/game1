@@ -19,7 +19,9 @@ console.log("Access key:",process.env.ACCESS_SECRET)
 app.use(cookieParser())
 app.use(express.json())
 const corsOption ={
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173',
+    "https://game1-ivory.vercel.app",
+    ],
   credentials: true,
 }
 app.use(cors(corsOption))
