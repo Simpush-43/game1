@@ -22,7 +22,7 @@ const Homepage = ({ handleVisiblity }) => {
   const navigate = useNavigate();
   const {logout} = useAuth();
   useEffect(()=>{
-axios.get("http://localhost:2929/profile",{
+axios.get(`${import.meta.env.VITE_API_URL}/profile`,{
     headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`
   }
@@ -40,7 +40,7 @@ axios.get("http://localhost:2929/profile",{
   setuser(null)
 })
 // getting the game stats 
-axios.get('http://localhost:2929/profile/gamestats',{
+axios.get(`${import.meta.env.VITE_API_URL}/profile/gamestats`,{
   headers:{
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },

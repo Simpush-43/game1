@@ -31,10 +31,11 @@ const [error, setError] = useState('');
 
     // saving the form data 
     try{
-      const response = await axios.post('http://localhost:2929/signup',formData)
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`,formData)
       alert('Sign-Up succesful');
       console.log('User details',response.data)
       localStorage.setItem('token',response.data.token);
+      navigate('/GameMenu')
     }catch(err){
 console.log('Error in sign up',err.response?.data || err.message)
  setError(err.response?.data?.message || 'Signup failed. Please try again.');
@@ -50,7 +51,7 @@ alert('Error in signup,please try again later')
     }
 // logging the user in
 try{
-const response = await axios.post(`http://localhost:2929/login`,formData);
+const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`,formData);
 alert('login succesful')
 console.log('User details',response.data);
 localStorage.setItem('token',response.data.token);

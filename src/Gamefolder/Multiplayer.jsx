@@ -50,7 +50,7 @@ const Multiplayer = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:2929/profile",{
+    axios.get(`${import.meta.env.VITE_API_URL}/profile`,{
     headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`
   }
@@ -129,7 +129,7 @@ const Multiplayer = () => {
   useEffect(()=>{
 if(winner && user){
   const result = winner === playerSymbolRef.current ? "win":"loss"
-  axios.put('http://localhost:2929/profile/Update-gamestats',{
+  axios.put(`${import.meta.env.VITE_API_URL}/profile/Update-gamestats`,{
     result,
   }, {headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
