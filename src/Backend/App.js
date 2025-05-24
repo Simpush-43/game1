@@ -25,6 +25,7 @@ const corsOption ={
   credentials: true,
 }
 app.use(cors(corsOption))
+app.options('*', cors(corsOption)); 
 app.use(SignupRoute);
 
 // connection to mongodatabse
