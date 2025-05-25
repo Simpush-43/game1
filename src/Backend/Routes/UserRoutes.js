@@ -37,7 +37,7 @@ router.post("/signup", async (req, res) => {
     });
         res.cookie("token", jwtToken, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: "Lax",
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
@@ -65,7 +65,7 @@ router.post("/login", async (req, res) => {
     });
         res.cookie("token", jwtToken, {
       httpOnly: true,
-      secure: false, // true if using HTTPS
+      secure: true, // true if using HTTPS
       sameSite: "Lax",
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
@@ -79,9 +79,8 @@ router.post('/logout',async (req,res)=>{
   res.json({ message: 'Logged out' });
 })
 router.get('/profile',async(req,res)=>{
-  const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(401).send({ message: "Unauthorized" });
-    const token = authHeader.split(' ')[1];
+const token = req.cookies.token;
+if (!token) return res.status(401).json({ message: "Unauthorized" });
     try {
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
       const user = await User.findById(decoded.id).select('-Password'); // Don't send password
