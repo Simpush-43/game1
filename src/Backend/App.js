@@ -5,18 +5,16 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const SignupRoute = require('./Routes/UserRoutes');
 // web socket server 
-const SocketIoServer = require('./SocketIoServer')
 
 dotenv.config({path:'keys.env'});
 console.log("Access key:",process.env.ACCESS_SECRET)
 
 // creating port
- const app = express();
+const app = express();
  const PORT = process.env.APP_PORT;
  //setting up ws server
- const server= SocketIoServer(app)
-//middlewares
-app.use(cookieParser())
+ //middlewares
+ app.use(cookieParser())
 app.use(express.json())
 const corsOption ={
     origin: ['http://localhost:5173',
@@ -44,6 +42,8 @@ app.get('/',(req,res)=>{
 app.get('/server',(req,res)=>{
   res.send("hiii from server")
 })
+const SocketIoServer = require('./SocketIoServer')
+const server= SocketIoServer(app)
 // listening to the port
 server.listen(PORT,(err)=>{
  if(err){
