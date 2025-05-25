@@ -35,10 +35,11 @@ router.post("/signup", async (req, res) => {
         const jwtToken = jwt.sign({ id: New_User._id }, process.env.ACCESS_SECRET, {
       expiresIn: "30d",
     });
+    const isProduction = process.env.NODE_ENV === "production";
         res.cookie("token", jwtToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: "Lax",
+      secure: isProduction,
+      sameSite: isProduction?"None":"Lax",
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
     res.status(201).json({ message: "User created succesfully" ,token: jwtToken});
