@@ -31,7 +31,7 @@ const [error, setError] = useState('');
 
     // saving the form data 
     try{
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`,formData)
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`,formData,{withCredentials:true})
       alert('Sign-Up succesful');
       console.log('User details',response.data)
       localStorage.setItem('token',response.data.token);
@@ -51,7 +51,9 @@ alert('Error in signup,please try again later')
     }
 // logging the user in
 try{
-const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`,formData);
+const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`,formData,{
+  withCredentials:true
+});
 alert('login succesful')
 console.log('User details',response.data);
 localStorage.setItem('token',response.data.token);
