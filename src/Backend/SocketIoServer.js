@@ -36,6 +36,10 @@ const SocketIoServer = (app) =>{
   console.log("setting up the server")
 
   const rooms = new Map();
+  io.use((socket, next) => {
+  console.log("Socket handshake origin:", socket.handshake.headers.origin);
+  next();
+});
   io.on('connection',(socket)=>{
     console.log("A user is connected");
 
