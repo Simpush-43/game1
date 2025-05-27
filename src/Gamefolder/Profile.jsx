@@ -23,7 +23,7 @@ const Profile = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:2929/profile", {
+      .get(`${import.meta.env.VITE_API_URL}/profile`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -36,11 +36,14 @@ const Profile = () => {
         } else {
           console.log("User kaha hia");
         }
+      }).catch((err)=>{
+ console.error("Error fetching user", err);
+    setlaoding(false);
       });
   }, []);
     useEffect(()=>{
       console.log('stats useEffect fired')
-axios.get('http://localhost:2929/profile/gamestats',{
+axios.get(`${import.meta.env.VITE_API_URL}/profile/gamestats`,{
   headers:{
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
@@ -57,7 +60,7 @@ axios.get('http://localhost:2929/profile/gamestats',{
     if (!newUsername.trim()) return;
     axios
       .put(
-        "http://localhost:2929/profile/update-username",
+        `${import.meta.env.VITE_API_URL}/profile/update-username`,
         { Username: newUsername },
         {
           headers: {
@@ -84,7 +87,7 @@ axios.get('http://localhost:2929/profile/gamestats',{
     if (!newEmail.trim()) return;
     axios
       .put(
-        "http://localhost:2929/profile/update-email",
+        `${import.meta.env.VITE_API_URL}/profile/update-email`,
         { Email: newEmail },
         {
           headers: {
@@ -114,7 +117,7 @@ axios.get('http://localhost:2929/profile/gamestats',{
     }
     axios
       .put(
-        "http://localhost:2929/profile/Update-Password",
+        `${import.meta.env.VITE_API_URL}/profile/Update-Password`,
         { oldPassword, newPassword },
         {
           headers: {

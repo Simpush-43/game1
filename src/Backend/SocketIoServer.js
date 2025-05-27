@@ -28,8 +28,9 @@ const SocketIoServer = (app) =>{
   const server = createServer(app)
   const io = new Server(server,{
     cors:{
-      origin:"*",
-      methods:["GET","POST"]
+      origin:["http://localhost:5173", "https://game1-ivory.vercel.app"],
+      methods:["GET","POST"],
+      credentials:true
     }
   });
   console.log("setting up the server")
