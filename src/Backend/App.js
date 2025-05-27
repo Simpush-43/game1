@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const SignupRoute = require('./Routes/UserRoutes');
+const SocketIoServer = require('./SocketIoServer');
 // web socket server 
 
 dotenv.config({path:'keys.env'});
@@ -13,20 +14,20 @@ console.log("Access key:",process.env.ACCESS_SECRET)
 const app = express();
  const PORT = process.env.APP_PORT;
  //setting up ws server
- //middlewares
- app.use(cookieParser())
-app.use(express.json())
-const corsOption ={
-    origin: ['http://localhost:5173',
+ const corsOption ={
+   origin: ['http://localhost:5173',
     "https://game1-ivory.vercel.app",
-    ],
+  ],
   credentials: true,
-   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-   allowedHeaders: ['Content-Type', 'Authorization'],
-
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  
 }
-app.use(cors(corsOption))
-app.options('*', cors(corsOption)); 
+//middlewares
+  app.use(cors(corsOption))
+  app.options('*', cors(corsOption)); 
+  app.use(cookieParser())
+  app.use(express.json())
 app.use(SignupRoute);
 
 // connection to mongodatabse
@@ -42,7 +43,6 @@ app.get('/',(req,res)=>{
 app.get('/server',(req,res)=>{
   res.send("hiii from server")
 })
-const SocketIoServer = require('./SocketIoServer')
 const server= SocketIoServer(app)
 // listening to the port
 server.listen(PORT,(err)=>{
