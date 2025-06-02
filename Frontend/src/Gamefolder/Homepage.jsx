@@ -45,8 +45,12 @@ axios.get(`${import.meta.env.VITE_API_URL}/profile/gamestats`,{
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 }).then((res)=>{
-  setstats(res.data.stats);
-  console.log(res.data.stats)
+  if (res.data && res.data.stats) {
+    setstats(res.data.stats);
+    console.log(res.data.stats)
+  } else {
+    console.warn("No stats found, using defaults");
+  }
 }).catch((err) => {
         console.error("Error fetching stats", err);
       });
