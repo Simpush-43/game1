@@ -1,7 +1,7 @@
 // Socket.js
 import { io } from "socket.io-client";
 
-const socket = io('wss://game1-production.up.railway.app',{
+const socket = io('https://game1-r4h2.onrender.com',{
    transports: ['websocket'],
   withCredentials:true
 }); // Use your backend URL & port
