@@ -43,6 +43,9 @@ app.get('/',(req,res)=>{
 app.get('/server',(req,res)=>{
   res.send("hiii from server")
 })
+app.put('/test-put', (req, res) => {
+  res.json({ message: "PUT works!" });
+});
 const server= SocketIoServer(app)
 // listening to the port
 server.listen(PORT,(err)=>{

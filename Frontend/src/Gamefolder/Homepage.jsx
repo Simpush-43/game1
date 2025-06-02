@@ -4,10 +4,10 @@ import axios from "axios"
 axios.defaults.withCredentials = true;
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import STaricon from "../assets/reshot-icon-stars-WGC36LBUHF.svg";
-import TicTakToeIcon from "../assets/Game_icon.png";
-import Profile_Avatar from "../assets/Game_avatar.png";
-import Silver_League from '../assets/Silver_League.png'
+import STaricon from "../../assets/reshot-icon-stars-WGC36LBUHF.svg";
+import TicTakToeIcon from "../../assets/Game_icon.png";
+import Profile_Avatar from "../../assets/Game_avatar.png";
+import Silver_League from '../../assets/Silver_League.png'
 const Homepage = ({ handleVisiblity }) => {
   const [state, setstate] = useState(Array(9).fill(null));
   const [player, setplayer] = useState(true);

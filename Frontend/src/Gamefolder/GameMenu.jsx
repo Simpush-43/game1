@@ -1,8 +1,8 @@
 import React from 'react'
-import solo from '../assets/solo.svg'
-import Freinds from '../assets/freinds.svg'
-import Ai from '../assets/computer.svg'
-import Stars from '../assets/Star_GameMenu.svg'
+import solo from '../../assets/solo.svg'
+import Freinds from '../../assets/freinds.svg'
+import Ai from '../../assets/computer.svg'
+import Stars from '../../assets/Star_GameMenu.svg'
 import {useNavigate} from 'react-router-dom'
 const GameMenu = () => {
   const navigate = useNavigate();

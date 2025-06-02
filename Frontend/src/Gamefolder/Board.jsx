@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Square from "./Square";
 import { useNavigate } from "react-router-dom";
-import Star from '../assets/reshot-icon-star-RJG5SKY8UZ.svg'
+import Star from '../../assets/reshot-icon-star-RJG5SKY8UZ.svg'
 const Board = () => {
   const [state, setstate] = useState(Array(9).fill(null));
   const [player, setplayer] = useState(true);

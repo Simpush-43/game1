@@ -3,7 +3,7 @@ import Square from './Square';
 import { useNavigate, useParams ,useLocation} from 'react-router-dom';
 import socket from './Socket';
 import axios from 'axios';
-import Player_Avatar from "../assets/Game_avatar.png"
+import Player_Avatar from "../../assets/Game_avatar.png"
 const Multiplayer = () => {
   const navigate = useNavigate();
   const { roomCode } = useParams();

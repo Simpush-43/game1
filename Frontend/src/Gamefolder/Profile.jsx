@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Avatar_User from "../assets/Game_avatar.png";
-import Avatar_Badge from "../assets/Silver_League.png";
+import Avatar_User from "../../assets/Game_avatar.png";
+import Avatar_Badge from "../../assets/Silver_League.png";
 const Profile = () => {
   const [user, setuser] = useState(null);
   const [loading, setlaoding] = useState(true);
