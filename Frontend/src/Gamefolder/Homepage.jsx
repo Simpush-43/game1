@@ -9,6 +9,7 @@ import TicTakToeIcon from "../../assets/Game_icon.png";
 import Profile_Avatar from "../../assets/Game_avatar.png";
 import Silver_League from '../../assets/Silver_League.png'
 const Homepage = ({ handleVisiblity }) => {
+  console.log("API URL:", import.meta.env.VITE_API_URL);
   const [state, setstate] = useState(Array(9).fill(null));
   const [player, setplayer] = useState(true);
   const [visible, isvisible] = useState(false);
