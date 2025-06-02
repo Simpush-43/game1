@@ -5,6 +5,15 @@ const router = Express.Router();
 const {User, UserStats} = require("../models/singupschema");
 const cookieParser = require('cookie-parser');
 const verifytoken = require('../middlewares/verifytoken')
+const corsOption = {
+  origin: ['http://localhost:5173', 'https://game1-ad2f.onrender.com', 'https://game1-r4h2.onrender.com'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+router.use(cors(corsOption)); // ✅ Safe local CORS for all routes
+router.options('*', cors(corsOption)); // ✅ Handle preflight requests
 // signUP route
 router.post("/signup", async (req, res) => {
   try {
