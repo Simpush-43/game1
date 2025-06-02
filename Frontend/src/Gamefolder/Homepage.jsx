@@ -96,13 +96,13 @@ axios.get(`${import.meta.env.VITE_API_URL}/profile/gamestats`,{
           </div>
           <div className="League">
             <img src={Silver_League} alt="" className="Profile_League_Avatar" />
-            <p className="Level_Points">{stats.Points || 0}</p>
+            <p className="Level_Points">{stats?.Points ?? 0}</p>
           </div>
           </div>
           <div className="Profilecard_Bottom">
             <div className="Wins_Lose_Stats">
-              <p>🏅 Wins: {stats.Wins || 0}</p>
-              <p>😞 Lost: {stats.lost || 0}</p>
+              <p>🏅 Wins: {stats?.Wins ??  0}</p>
+              <p>😞 Lost: {stats?.lost ?? 0}</p>
             </div>
             <div className="Login_Logout">
               {
