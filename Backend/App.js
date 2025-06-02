@@ -16,7 +16,7 @@ const app = express();
  //setting up ws server
  const corsOption ={
    origin: ['http://localhost:5173',
-    "https://game1-ivory.vercel.app",
+    "https://game1-r4h2.onrender.com",
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
