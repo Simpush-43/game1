@@ -50,7 +50,7 @@ handleConnectToMongoose('mongodb://localhost:27017/Tictak').then(()=>{
 })
 // handling request 
 app.get('/cors-test', (req, res) => {
-  res.json({ message: 'CORS is working', origin: req.headers.origin });
+  res.json({ message: 'hloo});
 });
 
 app.get('/',(req,res)=>{
