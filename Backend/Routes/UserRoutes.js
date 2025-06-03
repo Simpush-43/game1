@@ -1,6 +1,7 @@
 const Express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cors = require('cors')
 const router = Express.Router();
 const {User, UserStats} = require("../models/singupschema");
 const cookieParser = require('cookie-parser');
