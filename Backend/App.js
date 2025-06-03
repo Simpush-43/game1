@@ -49,7 +49,7 @@ app.get('/cors-test', (req, res) => {
 app.use(SignupRoute);
 
 // connection to mongodatabse
-handleConnectToMongoose('mongodb://localhost:27017/Tictak').then(()=>{
+handleConnectToMongoose(process.env.MONGO_URL).then(()=>{
   console.log('connected to database')
 }).catch((err)=>{
   console.log('error in connecting to database')
