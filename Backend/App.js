@@ -54,7 +54,7 @@ app.get('/cors-test', (req, res) => {
 });
 
 app.get('/',(req,res)=>{
-  res.send("helloo bhayyy")
+  res.json({message:"helloo bhayyy"})
 })
 app.get('/server',(req,res)=>{
   res.send("hiii from server")
