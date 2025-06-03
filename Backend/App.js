@@ -14,19 +14,30 @@ console.log("Access key:",process.env.ACCESS_SECRET)
 const app = express();
  const PORT = process.env.APP_PORT;
  //setting up ws server
- const corsOption ={
-   origin: ['http://localhost:5173',
-    "https://game1-r4h2.onrender.com",
-    'https://game1-ad2f.onrender.com',
-  ],
+
+ const allowedOrigins = [
+  "http://localhost:5173",
+  "https://game1-r4h2.onrender.com",
+  "https://game1-ad2f.onrender.com"
+];
+
+// Dynamic origin checker
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  
-}
+};
+
 //middlewares
-  app.use(cors(corsOption))
-  app.options('*', cors(corsOption)); 
+  app.use(cors(corsOptions))
+  app.options('*', cors(corsOptions)); 
   app.use(cookieParser())
   app.use(express.json())
 app.use(SignupRoute);
