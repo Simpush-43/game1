@@ -40,6 +40,12 @@ const corsOptions = {
   app.options('*', cors(corsOptions)); 
   app.use(cookieParser())
   app.use(express.json())
+app.get('/cors-test', (req, res) => {
+  res.json({
+    message: 'CORS is working!',
+    origin: req.headers.origin || 'no origin header',
+  });
+});
 app.use(SignupRoute);
 
 // connection to mongodatabse
@@ -49,9 +55,6 @@ handleConnectToMongoose('mongodb://localhost:27017/Tictak').then(()=>{
   console.log('error in connecting to database')
 })
 // handling request 
-app.get('/cors-test', (req, res) => {
-  res.json({ message: 'hloo});
-});
 
 app.get('/',(req,res)=>{
   res.json({message:"helloo bhayyy"})
