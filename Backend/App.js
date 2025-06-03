@@ -49,6 +49,10 @@ handleConnectToMongoose('mongodb://localhost:27017/Tictak').then(()=>{
   console.log('error in connecting to database')
 })
 // handling request 
+app.get('/cors-test', (req, res) => {
+  res.json({ message: 'CORS is working', origin: req.headers.origin });
+});
+
 app.get('/',(req,res)=>{
   res.send("helloo bhayyy")
 })
