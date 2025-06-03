@@ -15,7 +15,7 @@ const app = express();
  const PORT = process.env.APP_PORT;
  //setting up ws server
  const corsOption ={
-   origin: true
+   origin: true, 
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
