@@ -15,7 +15,10 @@ const app = express();
  const PORT = process.env.APP_PORT;
  //setting up ws server
  const corsOption ={
-   origin: true, 
+   origin: ['http://localhost:5173',
+    "https://game1-r4h2.onrender.com",
+    'https://game1-ad2f.onrender.com',
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
